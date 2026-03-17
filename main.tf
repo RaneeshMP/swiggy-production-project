@@ -65,3 +65,12 @@ resource "aws_eip_association" "webserver" {
   instance_id   = aws_instance.webserver.id
   allocation_id = aws_eip.webserver.id
 }
+
+resource "aws_route53_record" "webserver" {
+
+  zone_id = data.aws_route53_zone.domain.zone_id
+  name    = var.hostname
+  type    = "A"
+  ttl     = 5
+  records = [aws_eip.webserver.public_ip]
+}
