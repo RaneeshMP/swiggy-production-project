@@ -18,3 +18,15 @@ variable "project_environment" {
   type        = string
   default     = "production"
 }
+
+variable "instance_type" {
+
+  description = "my instance type"
+  type        = string
+}
+
+variable "instance_ami" {
+
+  description = "my instance ami id"
+  type        = string
+}
